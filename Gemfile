@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+gem "fluent-plugin-mongo"
+gem "fluentd", :github => "fluent/fluentd"
+gem "fluent-plugin-twitter", :github => "kiyoto/fluent-plugin-twitter"
+gem "bson_ext"
