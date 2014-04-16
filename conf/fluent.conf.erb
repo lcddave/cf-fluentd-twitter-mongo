@@ -1,0 +1,35 @@
+<%
+  require 'json'
+  mongo = JSON.parse(ENV['VCAP_SERVICES'])["mongolab"]
+  uri = mongo.first["credentials"]["uri"]
+%>
+
+<source>
+  type twitter
+  consumer_key        <%= ENV['CONS_KEY'] %> # Required
+  consumer_secret     <%= ENV['CONS_SECRET'] %> # Required
+  oauth_token         <%= ENV['OAUTH_TOKEN'] %> # Required
+  oauth_token_secret  <%= ENV['OAUTH_SECRET'] %> # Required
+  tag                 input.twitter.mongo  # Required
+  timeline            userstream # Required (sampling or userstream)
+</source>
+
+<match input.twitter.mongo>
+  type copy
+  <store>
+    type stdout # for debugging
+  </store>
+  <store>
+    type mongo
+    host <%= uri[/@.+:/][1..-2] %>
+    port <%= uri[/:\d+\//][1..-2] %>
+    database <%= uri[/\d\/.+$/][2..-1] %>
+    collection tweets 
+    user <%= uri[/\/\/.+?:/][2..-2] %>
+    password <%= uri[/:\w+@/][1..-2] %>
+    flush_interval 5s #for demo. in real life, you want to buffer more
+    capped
+    capped_size 100m
+  </store>
+</match> 
+

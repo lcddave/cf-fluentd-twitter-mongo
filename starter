@@ -1,0 +1,4 @@
+erb conf/fluent.conf.erb > conf/fluent.conf
+bundle exec fluentd -c conf/fluent.conf -i "<source>\n type http\n port $PORT\n</source>"
+
+

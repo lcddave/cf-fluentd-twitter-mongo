@@ -1,0 +1,14 @@
+---
+# twitter-fluentd-mongo-demo
+applications:
+- name: twitter-fluentd-mongo-demo
+  memory: 256M
+  instances: 1
+  services:
+  - demo-mongo
+  env:
+    CONS_KEY: <replaceme>
+    CONS_SECRET: <replaceme>
+    OAUTH_TOKEN: <replaceme>
+    OAUTH_SECRET: <replaceme>
+
