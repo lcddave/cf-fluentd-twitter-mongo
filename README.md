@@ -49,6 +49,7 @@ This example automatically configures Fluentd via environment variables set in t
   consumer_secret     YOUR_CONSUMER_SECRET # Required
   oauth_token         YOUR_OAUTH_TOKEN # Required
   oauth_token_secret  YOUR_OAUTH_TOKEN_SECRET # Required
+```
 
 You need to update it with your Twitter consumer key/secret, Twitter OAuth token/secret (see [here](https://dev.twitter.com/discussions/631) for how to get those)
 
@@ -60,7 +61,7 @@ $ cf push
 
 Now your app should be live!
 
-###Check that data is coming into MongoDB
+### Check that data is coming into MongoDB
 
 If you are using Mongolab, you can use their browser-based admin tool. In cloud foundry this is accessible via the [Developer Console](https://console.run.pivotal.io).
 
@@ -68,7 +69,7 @@ The Tweets should be collected in the collection `tweets`. Here is a screenshot
 
 <img src="https://dl.dropboxusercontent.com/u/63890117/images/mongolab-fluentd.png"/>
 
-###What's Next?
+### What's Next?
 
 - [Fluentd website](http://fluentd.org)
 - [Fluentd documentation](https://docs.fluentd.org)
