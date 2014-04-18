@@ -10,6 +10,11 @@ This is an example implementation of collecting Tweets into MongoDB using Fluent
 
 More specifically, it "tails" the user stream of the given Twitter account and stream the tweets into MongoDB for further analysis.
 
+The main differences between this repo and https://github.com/kiyoto/heroku-fluentd-twitter-mongo are:
+
+- the input of application configurable parameters via environment variables
+- 3rd party service (mongolab) binding to the application
+
 ##Setup
 
 ###Prerequisites
